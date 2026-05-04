@@ -1,0 +1,93 @@
+/* Ajuste para que las imagenes del carrusel sean uniformes */
+        .carousel-item img {
+            height: 400px; /* Ajuste de altura*/
+            object-fit: cover; /* Recorta la imagen para que llene el espacio sin deformarse */
+            border-radius: 10px;
+        }
+        
+        .carousel {
+            max-width: 450px;
+            margin: 0 auto 1.5rem; /* Centrado y margen inferior */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        body {
+            /* 1. Imagen de fondo principal */
+            background-image: url('../img/Fondo-Arbol5040x3360.jfif'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative; /* Necesario para el overlay */
+            min-height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 2. Capa de desenfoque y tinte (Overlay) */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Tinte oscuro (ajusta la opacidad 0.4) */
+            backdrop-filter: blur(8px); /* Cantidad de desenfoque (ajusta los pixeles) */
+            z-index: 1; /* Coloca la capa detrás del contenido */
+        }
+
+        /* 3. Asegurar que el contenido esté sobre la capa */
+        .container-fluid, .container {
+            position: relative;
+            z-index: 2; /* Mayor que el z-index de body::before */
+        }
+
+        /* Contenedor central blanco para contraste */
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.9); /* Blanco semitransparente */
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: -50px;
+            margin-bottom: 50px;
+        }
+
+        .hero-img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+         .social-icons img {
+            width: 45px;   /* Ancho fijo */
+            height: 45px;  /* Alto fijo */
+            object-fit: contain; /* Evita que se estiren, mantiene proporción */
+            margin: 0 10px;
+            transition: transform 0.3s;
+            border-radius: 8px; /* Opcional: suaviza bordes de iconos cuadrados como el de X */
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Reducimos el espacio del logo para que no empuje la card hacia abajo */
+        .logo-header {
+            max-width: 150px; /* Un poco más pequeño ayuda a subir la card */
+        }
+
+        /* Fondo para el logo */
+        .logo-bg-wrapper {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
