@@ -103,3 +103,40 @@
             margin-top: 15px !important;
         }
 
+        /* Media query para dispositivos móviles */
+        @media (max-width: 768px) {
+            .content-card {
+                margin-top: 20px; /* Elimina el margen negativo en móviles */
+                margin-bottom: 30px;
+            }
+
+            .carousel-item img {
+                height: 320px; /* Altura adecuada en móviles para ver imagen completa */
+            }
+
+            .carousel {
+                max-width: 100%;
+                margin: 0 auto 1.5rem;
+            }
+
+            .logo-header {
+                max-width: 120px;
+                padding: 8px;
+            }
+
+            /* Mostrar captions en móviles */
+            .carousel-caption {
+                display: block !important;
+            }
+
+            .carousel-caption h5 {
+                font-size: 1rem; /* Reduce tamaño del título en móviles */
+                margin: 0.3rem 0;
+            }
+
+            .carousel-caption p {
+                font-size: 0.85rem; /* Reduce tamaño del texto en móviles */
+                margin: 0;
+            }
+        }
+
