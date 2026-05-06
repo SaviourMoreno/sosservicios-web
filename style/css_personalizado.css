@@ -15,7 +15,7 @@
 
         body {
             /* 1. Imagen de fondo principal */
-            background-image: url('../img/Fondo-Arbol5040x3360.jfif'); 
+            background-image: url('../img/Fondo-Arbol.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -27,7 +27,7 @@
             padding: 0;
         }
 
-        /* 2. Capa de desenfoque y tinte (Overlay) */
+        /* Capa de desenfoque y tinte */
         body::before {
             content: "";
             position: absolute;
@@ -40,7 +40,7 @@
             z-index: 1; /* Coloca la capa detrás del contenido */
         }
 
-        /* 3. Asegurar que el contenido esté sobre la capa */
+        /* Asegurar que el contenido esté sobre la capa */
         .container-fluid, .container {
             position: relative;
             z-index: 2; /* Mayor que el z-index de body::before */
@@ -73,16 +73,16 @@
             object-fit: contain; /* Evita que se estiren, mantiene proporción */
             margin: 0 10px;
             transition: transform 0.3s;
-            border-radius: 8px; /* Opcional: suaviza bordes de iconos cuadrados como el de X */
+            border-radius: 8px; /* Suaviza bordes de iconos cuadrados como el de X */
         }
 
         .social-icons img:hover {
             transform: scale(1.1);
         }
         
-        /* Reducimos el espacio del logo para que no empuje la card hacia abajo */
+    
         .logo-header {
-            max-width: 150px; /* Un poco más pequeño ayuda a subir la card */
+            max-width: 150px;
             padding: 10px 10px 10px 10px;
         }
 
@@ -111,7 +111,7 @@
             }
 
             .carousel-item img {
-                height: 320px; /* Altura adecuada en móviles para ver imagen completa */
+                height: 320px; /* Altura en móviles para ver imagen completa */
             }
 
             .carousel {
