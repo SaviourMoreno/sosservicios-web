@@ -156,6 +156,7 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
+    padding: 0;
 }
 
 /* 2. Botón Principal (Logo WA con animaciones) */
@@ -181,8 +182,20 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+.menu-btn-whatsapp::before {
+    content: "";
+    position: absolute; /* Estira la caja invisible desde el botón principal hacia arriba */
+    bottom: 0;
+    right: 0;
+    width: 100%;/* Altura suficiente para cubrir el espacio hasta el botón más alto (MIP) */
+    height: 190px; 
+    background: transparent; /* Invisible */
+    /* Lo ponemos detrás para no bloquear los clics en los botones reales */
+    z-index: 1; 
+}
 /* Icono WA interno (Latido) */
 .main-whatsapp-btn i {
+    z-index: 10;
     color: #fff;
     display: inline-block;
     animation: beat 2s ease-in-out infinite;
@@ -204,7 +217,7 @@
     bottom: 10px;
     transform: scale(0);
     transform-origin: bottom right;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     opacity: 0;
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     z-index: 9;
