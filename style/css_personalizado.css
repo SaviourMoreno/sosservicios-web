@@ -140,3 +140,144 @@
             }
         }
 
+/* ==========================================================================
+   MENÚ DE WHATSAPP FLOTANTE - SOS SERVICIOS (VERSIÓN FINAL OPTIMIZADA)
+   ========================================================================== */
+
+/* 1. Contenedor Principal */
+.menu-btn-whatsapp {
+    width: 280px;
+    height: 70px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+/* 2. Botón Principal (Logo WA con animaciones) */
+.botonF1.main-whatsapp-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 32px;
+    /* Animación de contorno (respiración) */
+    animation: breathe 2s ease-in-out infinite;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Limpieza de bordes nativos */
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Icono WA interno (Latido) */
+.main-whatsapp-btn i {
+    color: #fff;
+    display: inline-block;
+    animation: beat 2s ease-in-out infinite;
+    pointer-events: none; /* Evita que el navegador enfoque el icono individualmente */
+}
+
+/* 3. Botones Desplegados (Texto + Icono) */
+.btn-desplegado {
+    height: 45px;
+    padding: 0 18px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    opacity: 0;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    z-index: 9;
+}
+
+.texto-btn {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* 4. Lógica de Activación y Pausa */
+
+.menu-btn-whatsapp:hover .btn-desplegado {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.menu-btn-whatsapp:hover .botonF1-extra { bottom: 80px; } /* Arbolado */
+.menu-btn-whatsapp:hover .botonF2 { bottom: 135px; }       /* MIP */
+
+/* Estado cuando el menú está abierto: Pausamos y quitamos recuadros */
+.menu-btn-whatsapp:hover .main-whatsapp-btn {
+    animation-play-state: paused;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important; /* Sombra estática circular */
+    outline: none !important;
+}
+
+.menu-btn-whatsapp:hover .main-whatsapp-btn i {
+    animation-play-state: paused;
+}
+
+/* Limpieza extra para estados de foco (evita el rectángulo azul/negro) */
+.main-whatsapp-btn:focus, 
+.main-whatsapp-btn:active {
+    outline: none !important;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); /* Mantiene la base de la onda */
+}
+
+/* 5. Colores y Estilos de Marca */
+.botonF1-extra { background-color: #128C7E; } /* Verde WA oscuro */
+.botonF2 { background-color: #2196F3; }       /* Azul Servicios */
+
+/* 6. Animaciones (Keyframes) */
+
+@keyframes breathe {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+/* 7. Diseño Responsivo */
+@media (max-width: 768px) {
+    .menu-btn-whatsapp {
+        right: 15px;
+        bottom: 15px;
+        width: 230px;
+    }
+    .botonF1.main-whatsapp-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+}
