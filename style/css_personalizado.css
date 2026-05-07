@@ -15,7 +15,7 @@
 
         body {
             /* 1. Imagen de fondo principal */
-            background-image: url('../img/Fondo-Arbol.jpg');
+            background-image: url('../img/fondo-arbol.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
